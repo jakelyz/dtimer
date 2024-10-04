@@ -1,0 +1,9 @@
+{
+	"authors": [
+		"Jake Lilly"
+	],
+	"copyright": "Copyright © 2024, Jake Lilly",
+	"description": "A simple cli timer.",
+	"license": "MIT",
+	"name": "dtimer"
+}

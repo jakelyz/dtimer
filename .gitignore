@@ -1,0 +1,16 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/dtimer
+dtimer.so
+dtimer.dylib
+dtimer.dll
+dtimer.a
+dtimer.lib
+dtimer-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst
