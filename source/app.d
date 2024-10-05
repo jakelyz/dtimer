@@ -33,7 +33,7 @@ int main(string[] args)
         return 0;
     }
 
-    Timer t = dtimer.timer.newTimer();
+    Timer t = newTimer();
     t.run();
     return 0;
 }

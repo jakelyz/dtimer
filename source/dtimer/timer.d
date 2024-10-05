@@ -15,7 +15,7 @@ struct Timer
         int remaining = this.duration;    
         while(remaining > 0)
         {
-            stdout.write(format("\rRemaining: %s", dtimer.util.secondsToHumanReadable(remaining)));    
+            stdout.write(format("\rRemaining: %s", secondsToHumanReadable(remaining)));    
             stdout.flush();
             Thread.sleep(1.seconds);
             --remaining;
@@ -25,5 +25,5 @@ struct Timer
 
 Timer newTimer()
 {
-    return Timer(dtimer.util.durationToSeconds(dtimer.options.duration));
+    return Timer(durationToSeconds(duration));
 }        
