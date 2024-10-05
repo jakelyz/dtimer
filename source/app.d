@@ -1,6 +1,7 @@
 import std.getopt;
 import std.stdio;
 import dtimer.options;
+import dtimer.timer;
 
 private:
 
@@ -32,6 +33,7 @@ int main(string[] args)
         return 0;
     }
 
+    Timer t = dtimer.timer.newTimer();
+    t.run();
     return 0;
-
 }
