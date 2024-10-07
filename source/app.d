@@ -2,6 +2,7 @@ import std.getopt;
 import std.stdio;
 import dtimer.options;
 import dtimer.timer;
+import dtimer.window;
 
 private:
 
@@ -33,7 +34,7 @@ int main(string[] args)
         return 0;
     }
 
-    Timer t = newTimer();
-    t.run();
+    Timer t = new Timer(dtimer.options.duration);
+    start(t);
     return 0;
 }

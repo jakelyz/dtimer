@@ -1,29 +1,39 @@
 module dtimer.timer;
 
-import core.thread;
-import std.format;
-import std.stdio;
+import dtimer.bar;
 import dtimer.options;
 import dtimer.util;
 
-struct Timer 
+class Timer
 {
-    uint duration;
+    public:
+        int seconds, remaining;
+        string name;
+        Bar bar;
 
-    void run()
+    this(string duration)
     {
-        int remaining = this.duration;    
-        while(remaining > 0)
+        this.seconds = durationToSeconds(duration);    
+        this.remaining = this.seconds;
+        this.name = dtimer.options.name;
+        if (dtimer.options.progressBar)
         {
-            stdout.write(format("\rRemaining: %s", secondsToHumanReadable(remaining)));    
-            stdout.flush();
-            Thread.sleep(1.seconds);
-            --remaining;
+            BarOptions opts;
+            this.bar = new Bar(this.seconds, opts);
+        }
+    }
+
+    final bool complete() @property
+    {
+        return this.remaining == 0;    
+    }
+
+    final void cycle()
+    {
+        --this.remaining;    
+        if (dtimer.options.progressBar)
+        {
+            this.bar.increment;    
         }
     }
 }
-
-Timer newTimer()
-{
-    return Timer(durationToSeconds(duration));
-}        
