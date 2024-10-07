@@ -23,17 +23,21 @@ public:
 
 void render(Timer t)
 {
+    string remainingString;    
     Wsize dimensions = getWindowDimensions;
     if (t.name != null)
     {
         display(dimensions.centery - 1, adjustx(dimensions.centerx, t.name), t.name);
     }
 
-    auto remainingString = t.remaining.secondsToHumanReadable;
-    display(dimensions.centery, adjustx(dimensions.centerx, remainingString), remainingString);
-
     if (dtimer.options.progressBar) 
     {
-        display(dimensions.centery + 1, adjustx(dimensions.centerx, t.bar.tostr), t.bar.tostr);    
+        remainingString = t.bar.tostr ~ " " ~ t.remaining.secondsToHumanReadable;    
     }
+    else
+    {
+        remainingString = t.remaining.secondsToHumanReadable;
+    }
+
+    display(dimensions.centery, adjustx(dimensions.centerx, remainingString), remainingString);
 }
