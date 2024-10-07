@@ -33,11 +33,11 @@ void render(Timer t)
     if (dtimer.options.progressBar) 
     {
         remainingString = t.bar.tostr ~ " " ~ t.remaining.secondsToHumanReadable;    
+        display(dimensions.centery, adjustx(dimensions.centerx, t.bar.tostr), remainingString);
     }
     else
     {
         remainingString = t.remaining.secondsToHumanReadable;
+        display(dimensions.centery, adjustx(dimensions.centerx, remainingString), remainingString);
     }
-
-    display(dimensions.centery, adjustx(dimensions.centerx, remainingString), remainingString);
 }
