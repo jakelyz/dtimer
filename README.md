@@ -13,6 +13,7 @@ Prerequisites:
 - ncurses
 
 ```bash
+git clone https://github.com/jakelyz/dtimer.git
 cd dtimer
 dub build -b release
 ```
