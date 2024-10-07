@@ -2,6 +2,8 @@
 
 A simple cli timer with optional progress bar.
 
+![](docs/examples/dtimer.gif)
+
 ## Installation
 
 ### Manual
