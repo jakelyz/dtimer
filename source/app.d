@@ -6,7 +6,7 @@ import dtimer.window;
 
 private:
 
-const string VERSION = "0.1.0";
+const string VERSION = "0.1.1";
 
 public:
 
