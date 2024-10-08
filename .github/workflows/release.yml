@@ -12,6 +12,9 @@ jobs:
       matrix:
         os: [ubuntu-latest, macOS-latest]
 
+    permissions:
+      contents: write
+
     runs-on: ${{ matrix.os }}
     steps:
       - name: checkout
@@ -22,6 +25,15 @@ jobs:
         with:
           compiler: ldc
           dub: latest
+
+      - name: install ncurses
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" == "macOS" ]; then
+            brew install ncurses
+            mkdir -p /usr/local/opt/ncurses
+            ln -s /opt/homebrew/opt/ncurses/lib /usr/local/opt/ncurses/lib
+          fi  
 
       - name: build executable
         shell: bash
