@@ -6,7 +6,7 @@ import std.range: repeat;
 
 struct BarOptions
 {
-    int width       = 40;    
+    int width       = 10;    
     char fill_char  = '-';
     char empty_char = ' ';
 }

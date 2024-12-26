@@ -2,11 +2,11 @@ import std.getopt;
 import std.stdio;
 import dtimer.options;
 import dtimer.timer;
-import dtimer.window;
+import dtimer.printer;
 
 private:
 
-const string VERSION = "0.1.1";
+const string VERSION = "0.2.1";
 
 public:
 

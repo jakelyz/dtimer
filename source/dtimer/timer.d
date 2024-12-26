@@ -36,4 +36,9 @@ class Timer
             this.bar.increment;    
         }
     }
+
+    final string consoleString()
+    {
+        return this.bar.tostr ~ " " ~ this.remaining.secondsToHumanReadable;
+    }        
 }
