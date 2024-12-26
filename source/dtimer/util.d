@@ -58,7 +58,7 @@ string secondsToHumanReadable(uint remaining)
 
     if (hours > 0)   result = result ~ "%sh".format(to!string(hours));
     if (minutes > 0) result = result ~ "%sm".format(to!string(minutes));
-    if (seconds >= 0) result = result ~ "%ss".format(to!string(seconds));
+    if (seconds > 0) result = result ~ "%ss".format(to!string(seconds));
 
     return result;
 }

@@ -18,7 +18,13 @@ class Timer
         this.name = dtimer.options.name;
         if (dtimer.options.progressBar)
         {
-            BarOptions opts;
+            BarOptions opts = BarOptions(
+                dtimer.options.width,
+                dtimer.options.bar_fill,
+                dtimer.options.bar_empty,
+                dtimer.options.bar_start,
+                dtimer.options.bar_end
+            );
             this.bar = new Bar(this.seconds, opts);
         }
     }

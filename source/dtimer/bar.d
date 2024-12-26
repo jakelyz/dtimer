@@ -6,16 +6,18 @@ import std.range: repeat;
 
 struct BarOptions
 {
-    int width       = 10;    
-    char fill_char  = '-';
-    char empty_char = ' ';
+    int width;
+    char fill_char;
+    char empty_char;
+    char bar_start_char;
+    char bar_end_char;
 }
 
 class Bar 
 {
     private:    
         int total, current, width;
-        char fill_char, empty_char;
+        char fill_char, empty_char, bar_start_char, bar_end_char;
 
     double progress()
     {
@@ -31,6 +33,8 @@ class Bar
         this.width = opts.width;
         this.fill_char = opts.fill_char;
         this.empty_char = opts.empty_char;
+        this.bar_start_char = opts.bar_start_char;
+        this.bar_end_char = opts.bar_end_char;
     }
 
     final void increment()
@@ -44,15 +48,14 @@ class Bar
         int empty_len = this.width - fill_len;
         string filled = to!string(this.fill_char.repeat(fill_len));
         string empty = to!string(this.empty_char.repeat(empty_len));
-        return "[" ~ filled ~ empty ~ "]";
+        return this.bar_start_char ~ filled ~ empty ~ this.bar_end_char;
     }
 
 }
 
 unittest
 {
-    BarOptions opts;
-    opts.width = 10;
+    BarOptions opts = BarOptions(10, '-', ' ', '[', ']');
     auto bar = new Bar(10, opts);
     bar.increment;
     const string expected = "[-         ]";
