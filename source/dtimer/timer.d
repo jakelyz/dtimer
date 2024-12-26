@@ -39,6 +39,15 @@ class Timer
 
     final string consoleString()
     {
-        return this.bar.tostr ~ " " ~ this.remaining.secondsToHumanReadable;
+        string name;    
+        if (dtimer.options.name)
+        {
+            name = " (" ~ dtimer.options.name ~ ")";
+        }        
+        if (dtimer.options.progressBar)
+        {
+            return this.bar.tostr ~ " " ~ this.remaining.secondsToHumanReadable ~ name;
+        }        
+        return this.remaining.secondsToHumanReadable ~ name;
     }        
 }
