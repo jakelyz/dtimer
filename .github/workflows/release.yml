@@ -26,15 +26,6 @@ jobs:
           compiler: ldc
           dub: latest
 
-      - name: install ncurses
-        shell: bash
-        run: |
-          if [ "$RUNNER_OS" == "macOS" ]; then
-            brew install ncurses
-            mkdir -p /usr/local/opt/ncurses
-            ln -s /opt/homebrew/opt/ncurses/lib /usr/local/opt/ncurses/lib
-          fi  
-
       - name: build executable
         shell: bash
         run: ./release.sh
